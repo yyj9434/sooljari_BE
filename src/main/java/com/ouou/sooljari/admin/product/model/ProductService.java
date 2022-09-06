@@ -33,7 +33,7 @@ public class ProductService {
      * product 리스트 조회
      */
     public List<ProductResponseDto> findAll() {
-        Sort sort = Sort.by(Sort.Direction.DESC, "id");
+        Sort sort = Sort.by(Sort.Direction.ASC, "id");
         List<Product> list = productRepo.findAll(sort);
         return list.stream().map(ProductResponseDto::new).collect(Collectors.toList());
     }
@@ -44,7 +44,7 @@ public class ProductService {
     @Transactional
     public Long update(final Long id, final ProductRequestDto params) {
         Product entity = productRepo.findById(id).orElseThrow();
-        entity.update(params.getName(), params.getPrice(), params.getProof(), params.getArea(), params.getDescription());
+        entity.update(params.getName(), params.getImage(), params.getPrice(), params.getProof(), params.getArea(), params.getDescription());
         return id;
     }
 }
