@@ -10,8 +10,10 @@ import org.springframework.jdbc.support.CustomSQLExceptionTranslatorRegistrar;
 import org.springframework.jdbc.support.SQLErrorCodes;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,6 +38,13 @@ public class ProductService {
         Sort sort = Sort.by(Sort.Direction.ASC, "id");
         List<Product> list = productRepo.findAll(sort);
         return list.stream().map(ProductResponseDto::new).collect(Collectors.toList());
+    }
+
+    /**
+     * product id 검색
+     */
+    public Optional < Product > findById(Long id) {
+        return productRepo.findById(id);
     }
 
     /**

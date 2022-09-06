@@ -2,11 +2,13 @@ package com.ouou.sooljari.admin.product.controller;
 
 import com.ouou.sooljari.admin.product.dto.ProductRequestDto;
 import com.ouou.sooljari.admin.product.dto.ProductResponseDto;
+import com.ouou.sooljari.admin.product.entity.Product;
 import com.ouou.sooljari.admin.product.model.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -29,6 +31,14 @@ public class ProductController {
     @GetMapping("/products")
     public List<ProductResponseDto> findAll() {
         return productService.findAll();
+    }
+
+    /**
+     * product 검색
+     */
+    @GetMapping("/products/{id}")
+    public Optional<Product> findById(@PathVariable final Long id) {
+        return productService.findById(id);
     }
 
     /**
