@@ -23,6 +23,9 @@ public class Join {
     private String birth;
     private String phone;
 
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
+
     @Builder
     public Join(String email, String password, String userName, String birth, String phone) {
         this.email = email;
@@ -30,6 +33,6 @@ public class Join {
         this.userName = userName;
         this.birth = birth;
         this.phone = phone;
+        this.authority = authority;
     }
-
 }

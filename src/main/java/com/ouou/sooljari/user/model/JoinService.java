@@ -1,11 +1,13 @@
 package com.ouou.sooljari.user.model;
 
+import com.ouou.sooljari.user.config.SecurityUtil;
 import com.ouou.sooljari.user.dto.JoinRequestDto;
 import com.ouou.sooljari.user.dto.JoinResponseDto;
 import com.ouou.sooljari.user.entity.Join;
 import com.ouou.sooljari.user.entity.JoinRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -16,12 +18,19 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class JoinService {
     private final JoinRepo joinRepo;
+    private final PasswordEncoder passwordEncoder;
+
+//    public JoinResponseDto getMyInfoBySecurity() {
+//        return joinRepo.findById(SecurityUtil.getCurrentMemberId())
+//                .map(JoinResponseDto::of)
+//                .orElseThrow(()-> new RuntimeException("로그인 유저 정보가 없습니다."));
+//    }
 
     // 회원 생성
 
     @Transactional
     public Long save(final JoinRequestDto params) {
-        Join entity = joinRepo.save(params.toEntity());
+        Join entity = joinRepo.save(params.toEntity(passwordEncoder));
         return entity.getId();
     }
 
