@@ -8,6 +8,7 @@ public class ProductResponseDto {
 
     private Long id;
     private String name;
+    private String category;
     private String image;
     private String price;
     private String proof;
@@ -17,6 +18,7 @@ public class ProductResponseDto {
     public ProductResponseDto(Product entity) {
         this.id = entity.getId();
         this.name = entity.getName();
+        this.category = entity.getCategory();
         this.image = entity.getImage();
         this.price = entity.getPrice();
         this.proof = entity.getProof();

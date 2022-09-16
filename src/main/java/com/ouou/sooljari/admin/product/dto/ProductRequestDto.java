@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class ProductRequestDto {
 
     private String name;
+    private String category;
     private String image;
     private String price;
     private String proof;
@@ -19,6 +20,7 @@ public class ProductRequestDto {
     public Product toEntity() {
         return Product.builder()
                 .name(name)
+                .category(category)
                 .image(image)
                 .price(price)
                 .proof(proof)
