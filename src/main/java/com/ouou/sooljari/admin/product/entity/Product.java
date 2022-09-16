@@ -18,6 +18,7 @@ public class Product {
 
     @Column(nullable = false)
     private String name;
+    private String category;
     private String image;
     private String price;
     private String proof;
@@ -25,8 +26,9 @@ public class Product {
     private String description;
 
     @Builder
-    public Product(String name, String image, String price, String proof, String area, String description) {
+    public Product(String name, String category, String image, String price, String proof, String area, String description) {
         this.name = name;
+        this.category = category;
         this.image = image;
         this.price = price;
         this.proof = proof;
@@ -34,8 +36,9 @@ public class Product {
         this.description = description;
     }
 
-    public void update(String name, String image, String price, String proof, String area, String description) {
+    public void update(String name, String category, String image, String price, String proof, String area, String description) {
         this.name = name;
+        this.category = category;
         this.image = image;
         this.price = price;
         this.proof = proof;
