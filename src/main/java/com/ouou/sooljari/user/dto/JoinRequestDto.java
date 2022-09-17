@@ -19,7 +19,7 @@ public class JoinRequestDto {
     public Join toEntity(PasswordEncoder passwordEncoder) {
         return Join.builder()
                 .email(email)
-                .password(password)
+                .password(passwordEncoder.encode(password))
                 .userName(userName)
                 .birth(birth)
                 .phone(phone)
