@@ -28,15 +28,15 @@ public class JoinController {
         return ResponseEntity.ok(authService.login(requestDto));
     }
 
-    private final JoinService joinService;
+//    private final JoinService joinService;
 
 //    @PostMapping("/join")
 //    public Long save(@RequestBody final JoinRequestDto params) {
 //        return joinService.save(params);
 //    }
 
-    @GetMapping("/join")
-    public List<JoinResponseDto> getAllUsers() {
-        return joinService.getAllUsers();
-    }
+//    @GetMapping("/join")
+//    public List<JoinResponseDto> getAllUsers() {
+//        return joinService.getAllUsers();
+//    }
 }
