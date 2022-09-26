@@ -5,6 +5,7 @@ import com.ouou.sooljari.admin.product.dto.ProductResponseDto;
 import com.ouou.sooljari.admin.product.entity.Product;
 import com.ouou.sooljari.admin.product.model.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,6 +42,17 @@ public class ProductController {
     public Optional<Product> findById(@PathVariable final Long id) {
         return productService.findById(id);
     }
+
+    /**
+     * product name 검색
+     */
+//    @GetMapping("/products/search")
+//    public String search(String name, Model model) {
+//        List <Product> searchList = productService.search(name);
+//
+//        model.addAttribute("searchList", searchList);
+//        return "products-search";
+//    }
 
     /**
      * product 수정

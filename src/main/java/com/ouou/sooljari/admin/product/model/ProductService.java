@@ -48,6 +48,14 @@ public class ProductService {
     }
 
     /**
+     * product name 검색
+     */
+//    public List<Product> search(String name) {
+//        List<Product> ProductList = productRepo.findByTitleContaining(name);
+//        return ProductList;
+//    }
+
+    /**
      * product 수정
      */
     @Transactional

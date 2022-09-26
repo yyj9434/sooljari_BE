@@ -29,7 +29,7 @@ public class ProductTest {
 
         productRepo.save(params);
 
-        Product entity = productRepo.findById((long) 7).orElse(null);
+        Product entity = productRepo.findById((long) 46).orElse(null);
         assertThat(entity.getName()).isEqualTo("test101");
     }
 
@@ -42,7 +42,7 @@ public class ProductTest {
 
     @Test
     void delete() {
-        Product entity = productRepo.findById((long) 6).get();
+        Product entity = productRepo.findById((long) 46).get();
 
         productRepo.delete(entity);
     }
