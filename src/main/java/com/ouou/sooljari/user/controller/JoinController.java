@@ -4,7 +4,6 @@ import com.ouou.sooljari.user.dto.JoinRequestDto;
 import com.ouou.sooljari.user.dto.JoinResponseDto;
 import com.ouou.sooljari.user.dto.TokenDto;
 import com.ouou.sooljari.user.model.AuthService;
-import com.ouou.sooljari.user.model.JoinService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

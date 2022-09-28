@@ -20,13 +20,13 @@ public class JoinService {
     private final JoinRepo joinRepo;
     private final PasswordEncoder passwordEncoder;
 
-//    public JoinResponseDto getMyInfoBySecurity() {
-//        return joinRepo.findById(SecurityUtil.getCurrentMemberId())
-//                .map(JoinResponseDto::of)
-//                .orElseThrow(()-> new RuntimeException("로그인 유저 정보가 없습니다."));
-//    }
+    public JoinResponseDto getMyInfoBySecurity() {
+        return joinRepo.findById(SecurityUtil.getCurrentMemberId())
+                .map(JoinResponseDto::of)
+                .orElseThrow(()-> new RuntimeException("로그인 유저 정보가 없습니다."));
+    }
 
-    // 회원 생성
+     //회원 생성
 
     @Transactional
     public Long save(final JoinRequestDto params) {

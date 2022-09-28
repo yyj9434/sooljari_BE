@@ -27,7 +27,7 @@ public class Join {
     private Authority authority;
 
     @Builder
-    public Join(String email, String password, String userName, String birth, String phone) {
+    public Join(String email, String password, String userName, String birth, String phone, Authority authority) {
         this.email = email;
         this.password = password;
         this.userName = userName;

@@ -19,10 +19,10 @@ public class CustomUserDetailsService implements UserDetailsService {
     private final JoinRepo joinRepo;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return joinRepo.findByEmail(username)
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        return joinRepo.findByUserName(userName)
                 .map(this::createUserDetails)
-                .orElseThrow(()-> new UsernameNotFoundException(username + "을 찾을 수 없습니다."));
+                .orElseThrow(()-> new UsernameNotFoundException(userName + "을 찾을 수 없습니다."));
     }
 
     private UserDetails createUserDetails(Join join) {
