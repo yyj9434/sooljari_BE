@@ -4,8 +4,11 @@ import com.ouou.sooljari.user.dto.JoinRequestDto;
 import com.ouou.sooljari.user.dto.JoinResponseDto;
 import com.ouou.sooljari.user.dto.TokenDto;
 import com.ouou.sooljari.user.model.AuthService;
+import com.ouou.sooljari.user.model.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +29,7 @@ public class JoinController {
     public ResponseEntity<TokenDto> login(@RequestBody JoinRequestDto requestDto) {
         return ResponseEntity.ok(authService.login(requestDto));
     }
+
 
 //    private final JoinService joinService;
 
