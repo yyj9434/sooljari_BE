@@ -1,4 +1,4 @@
-package com.ouou.sooljari.user.filter;
+package com.ouou.sooljari.user;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
