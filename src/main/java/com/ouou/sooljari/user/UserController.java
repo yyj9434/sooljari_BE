@@ -1,18 +1,22 @@
 package com.ouou.sooljari.user;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.Collections;
 import java.util.Map;
 
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "X-AUTH-TOKEN")
 @RestController
 @RequestMapping("/api")
 public class UserController {
-
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
     private final UserRepository userRepository;
@@ -39,5 +43,16 @@ public class UserController {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
         }
         return jwtTokenProvider.createToken(member.getUsername(), member.getRoles());
+    }
+
+    @GetMapping("/checkJWT")
+    public String list(@CookieValue(name = "X-AUTH-TOKEN")String token){
+        //권한체크
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        User user = (User) authentication.getPrincipal();
+        return user.getUsername();
+        //authentication.getAuthorities().toString() -> 권한이름 출력
+
     }
 }

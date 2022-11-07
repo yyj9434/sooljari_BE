@@ -21,7 +21,7 @@ import java.util.List;
 @Component
 public class JwtTokenProvider {
 
-    private String secretKey = "qwertyuiopasdfghjklzxcvbnm1234567890";
+    private static String secretKey = "qwertyuiopasdfghjklzxcvbnm1234567890";
     //webfirewood
 
     // 토큰 유효시간 30분
@@ -56,7 +56,7 @@ public class JwtTokenProvider {
     }
 
     // 토큰에서 회원 정보 추출
-    public String getUserPk(String token) {
+    public static String getUserPk(String token) {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
 
