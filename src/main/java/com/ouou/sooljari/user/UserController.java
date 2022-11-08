@@ -9,6 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Collections;
 import java.util.Map;
 
@@ -46,11 +48,14 @@ public class UserController {
     }
 
     @GetMapping("/checkJWT")
-    public String list(){
+    public String list(HttpServletResponse response){
         //권한체크
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         User user = (User) authentication.getPrincipal();
+        Cookie cookie = new Cookie("userEmail", user.getUsername());
+        cookie.setPath("/");
+        response.addCookie(cookie);
         return user.getUserName();
         //authentication.getAuthorities().toString() -> 권한이름 출력
 
