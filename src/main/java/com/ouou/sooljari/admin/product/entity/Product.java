@@ -21,12 +21,12 @@ public class Product {
     private String category;
     private String image;
     private String price;
-    private String proof;
+    private float proof;
     private String area;
     private String description;
 
     @Builder
-    public Product(String name, String category, String image, String price, String proof, String area, String description) {
+    public Product(String name, String category, String image, String price, float proof, String area, String description) {
         this.name = name;
         this.category = category;
         this.image = image;
@@ -36,7 +36,7 @@ public class Product {
         this.description = description;
     }
 
-    public void update(String name, String category, String image, String price, String proof, String area, String description) {
+    public void update(String name, String category, String image, String price, float proof, String area, String description) {
         this.name = name;
         this.category = category;
         this.image = image;

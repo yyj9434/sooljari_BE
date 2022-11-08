@@ -22,7 +22,7 @@ public class ProductTest {
         Product params = Product.builder()
                 .name("test101")
                 .price("23440")
-                .proof("29")
+                .proof(29)
                 .area("seoul")
                 .description("test101")
                 .build();

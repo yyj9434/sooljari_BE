@@ -13,7 +13,7 @@ public class ProductRequestDto {
     private String category;
     private String image;
     private String price;
-    private String proof;
+    private float proof;
     private String area;
     private String description;
 
