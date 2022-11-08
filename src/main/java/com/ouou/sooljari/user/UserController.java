@@ -46,12 +46,12 @@ public class UserController {
     }
 
     @GetMapping("/checkJWT")
-    public String list(@CookieValue(name = "X-AUTH-TOKEN")String token){
+    public String list(){
         //권한체크
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         User user = (User) authentication.getPrincipal();
-        return user.getUsername();
+        return user.getUserName();
         //authentication.getAuthorities().toString() -> 권한이름 출력
 
     }

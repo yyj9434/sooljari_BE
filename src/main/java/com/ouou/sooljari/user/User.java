@@ -56,7 +56,7 @@ public class User implements UserDetails {
         return email;
     }
 
-    public String getUserName2() {
+    public String getUserName() {
         return userName;
     }
 
