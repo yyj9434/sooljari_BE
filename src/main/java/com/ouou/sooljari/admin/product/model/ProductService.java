@@ -61,7 +61,8 @@ public class ProductService {
     @Transactional
     public Long update(final Long id, final ProductRequestDto params) {
         Product entity = productRepo.findById(id).orElseThrow();
-        entity.update(params.getName(), params.getCategory(), params.getImage(), params.getPrice(), params.getProof(), params.getArea(), params.getDescription());
+        entity.update(params.getName(), params.getCategory(), params.getImage(), params.getPrice(), params.getProof(), params.getArea(), params.getDescription(),
+                params.getSweet(), params.getLight(), params.getSoft(), params.getBitter(), params.getClean(), params.getSmell());
         return id;
     }
 }

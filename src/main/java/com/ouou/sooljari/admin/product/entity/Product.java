@@ -25,8 +25,28 @@ public class Product {
     private String area;
     private String description;
 
+    @Column(name="sweet" , columnDefinition = "TINYINT", length = 1)
+    private int sweet;
+
+    @Column(name="light" , columnDefinition = "TINYINT", length = 1)
+    private int light;
+
+    @Column(name="soft" , columnDefinition = "TINYINT", length = 1)
+    private int soft;
+
+    @Column(name="bitter" , columnDefinition = "TINYINT", length = 1)
+    private int bitter;
+
+    @Column(name="clean" , columnDefinition = "TINYINT", length = 1)
+    private int clean;
+
+    @Column(name="smell" , columnDefinition = "TINYINT", length = 1)
+    private int smell;
+
+
+
     @Builder
-    public Product(String name, String category, String image, String price, float proof, String area, String description) {
+    public Product(String name, String category, String image, String price, float proof, String area, String description, int sweet, int light, int soft, int bitter, int clean, int smell) {
         this.name = name;
         this.category = category;
         this.image = image;
@@ -34,9 +54,15 @@ public class Product {
         this.proof = proof;
         this.area = area;
         this.description = description;
+        this.sweet = sweet;
+        this.light = light;
+        this.soft = soft;
+        this.bitter = bitter;
+        this.clean = clean;
+        this.smell = smell;
     }
 
-    public void update(String name, String category, String image, String price, float proof, String area, String description) {
+    public void update(String name, String category, String image, String price, float proof, String area, String description, int sweet, int light, int soft, int bitter, int clean, int smell) {
         this.name = name;
         this.category = category;
         this.image = image;
@@ -44,5 +70,11 @@ public class Product {
         this.proof = proof;
         this.area = area;
         this.description = description;
+        this.sweet = sweet;
+        this.light = light;
+        this.soft = soft;
+        this.bitter = bitter;
+        this.clean = clean;
+        this.smell = smell;
     }
 }

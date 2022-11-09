@@ -17,6 +17,13 @@ public class ProductRequestDto {
     private String area;
     private String description;
 
+    private int sweet;
+    private int light;
+    private int soft;
+    private int bitter;
+    private int clean;
+    private int smell;
+
     public Product toEntity() {
         return Product.builder()
                 .name(name)
@@ -26,6 +33,12 @@ public class ProductRequestDto {
                 .proof(proof)
                 .area(area)
                 .description(description)
+                .sweet(sweet)
+                .light(light)
+                .soft(soft)
+                .bitter(bitter)
+                .clean(clean)
+                .smell(smell)
                 .build();
     }
 
