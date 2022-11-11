@@ -53,7 +53,7 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         User user = (User) authentication.getPrincipal();
-        Cookie cookie = new Cookie("userEmail", user.getUsername());
+        Cookie cookie = new Cookie("userEmail", user.getUserEmail());
         cookie.setPath("/");
         response.addCookie(cookie);
         return user.getUserName();

@@ -9,19 +9,21 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name="like")
+@Table(name="liked")
 @Builder
-public class Like {
+public class Liked {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private Long userId;
+    private String userId;
     private Long productId;
 
+    private boolean liked;
+
     @Builder
-    public Like(Long userId, Long productId) {
+    public Liked(String userId, Long productId) {
         this.productId = productId;
         this.userId = userId;
     }

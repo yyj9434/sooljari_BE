@@ -1,15 +1,15 @@
 package com.ouou.sooljari.recommend.dto;
 
-import com.ouou.sooljari.recommend.entity.Like;
+import com.ouou.sooljari.recommend.entity.Liked;
 import lombok.Getter;
 
 @Getter
-public class LikeResponseDto {
+public class LikedResponseDto {
     private Long id;
-    private Long userId;
+    private String userId;
     private Long productId;
 
-    public LikeResponseDto(Like entity) {
+    public LikedResponseDto(Liked entity) {
         this.id = entity.getId();
         this.userId = entity.getUserId();
         this.productId = entity.getProductId();
