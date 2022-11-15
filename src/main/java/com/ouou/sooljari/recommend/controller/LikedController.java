@@ -4,6 +4,7 @@ import com.ouou.sooljari.recommend.dto.LikedRequestDto;
 import com.ouou.sooljari.recommend.entity.Liked;
 import com.ouou.sooljari.recommend.model.LikedService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -12,15 +13,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class LikedController {
 
+    @Autowired
     private final LikedService LikedService;
 
     @PostMapping("/liked")
-    public Long save(@RequestBody LikedRequestDto params) {
+    public void save(@RequestBody LikedRequestDto params) {
         boolean liked = params.isLiked();
         if(liked) {
-            return LikedService.save(params);
+            LikedService.save(params);
         } else {
-            return LikedService.delete(params);
+            LikedService.delete(params);
         }
     }
 
