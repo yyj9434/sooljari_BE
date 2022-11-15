@@ -17,22 +17,22 @@ public class Calendar {
     private Long id;
 
     @Column(nullable = false)
-    private Long userId;
+    private String userName;
     private String date;
     private Long productId;
     private String diary;
 
 
     @Builder
-    public Calendar(Long userId, String date, Long productId, String diary) {
-        this.userId = userId;
+    public Calendar(String userName, String date, Long productId, String diary) {
+        this.userName = userName;
         this.date = date;
         this.productId = productId;
         this.diary = diary;
     }
 
-    public void update(Long userId, String date, Long productId, String diary) {
-        this.userId = userId;
+    public void update(String userName, String date, Long productId, String diary) {
+        this.userName = userName;
         this.date = date;
         this.productId = productId;
         this.diary = diary;

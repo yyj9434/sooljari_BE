@@ -58,7 +58,7 @@ public class CalendarService {
     @Transactional
     public Long update(final Long id, final CalendarRequestDto params) {
         Calendar entity = calendarRepo.findById(id).orElseThrow();
-        entity.update(params.getUserId(), params.getDate(), params.getProductId(), params.getDiary());
+        entity.update(params.getUserName(), params.getDate(), params.getProductId(), params.getDiary());
         return id;
     }
 }

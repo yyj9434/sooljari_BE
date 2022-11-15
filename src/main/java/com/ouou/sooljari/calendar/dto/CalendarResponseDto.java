@@ -7,14 +7,14 @@ import lombok.Getter;
 public class CalendarResponseDto {
 
     private Long id;
-    private Long userId;
+    private String userName;
     private String date;
     private Long productId;
     private String diary;
 
     public CalendarResponseDto(Calendar entity) {
         this.id = entity.getId();
-        this.userId = entity.getUserId();
+        this.userName = entity.getUserName();
         this.date = entity.getDate();
         this.productId = entity.getProductId();
         this.diary = entity.getDiary();

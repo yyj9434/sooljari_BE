@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CalendarRequestDto {
 
-    private Long userId;
+    private String userName;
     private String date;
     private Long productId;
     private String diary;
 
     public Calendar toEntity() {
         return Calendar.builder()
-                .userId(userId)
+                .userName(userName)
                 .date(date)
                 .productId(productId)
                 .diary(diary)

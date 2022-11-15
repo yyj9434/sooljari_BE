@@ -20,7 +20,7 @@ public class CalendarTest {
     @Test
     void save() {
         Calendar params = Calendar.builder()
-                .userId(1L)
+                .userName("오혜린")
                 .date("2022-11-15")
                 .productId(3L)
                 .diary("아주 맛있었다")
@@ -28,8 +28,8 @@ public class CalendarTest {
 
         calendarRepo.save(params);
 
-        Calendar entity = calendarRepo.findById((long) 3).orElse(null);
-        assertThat(entity.getUserId()).isEqualTo(1L);
+        Calendar entity = calendarRepo.findById((long) 2).orElse(null);
+        assertThat(entity.getUserName()).isEqualTo("오혜린");
     }
 
     @Test
@@ -41,7 +41,7 @@ public class CalendarTest {
 
     @Test
     void delete() {
-        Calendar entity = calendarRepo.findById((long) 2).get();
+        Calendar entity = calendarRepo.findById((long) 1).get();
 
         calendarRepo.delete(entity);
     }
