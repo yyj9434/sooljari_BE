@@ -1,9 +1,12 @@
 package com.ouou.sooljari.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class HelloController {
@@ -14,4 +17,11 @@ public class HelloController {
 
     @GetMapping("/api")
     public String loginTest() { return "hello test"; }
+
+    @GetMapping("/api/testFlask")
+    public String testFlak(@RequestParam(value="id", required = false) String id) {
+        String getId = id;
+        System.out.println("Select ProductId is " + id);
+        return "Flask Connect";
+    }
 }
