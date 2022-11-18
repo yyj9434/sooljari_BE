@@ -111,7 +111,7 @@ regularised = min_max_scaler.fit_transform(dist_matrix)
 
 # 1에서 빼줘서 더 가까운 것이 우선순위를 갖도록 변경하기
 # 데이터 숫자만큼으로 변경해줘야 함
-one_matrix = np.ones((25,25))
+one_matrix = np.ones((24,24))
 
 final_dist = one_matrix - regularised
 
