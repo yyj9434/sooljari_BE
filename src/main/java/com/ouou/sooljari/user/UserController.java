@@ -51,8 +51,8 @@ public class UserController {
     public String list(HttpServletResponse response){
         //권한체크
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
         User user = (User) authentication.getPrincipal();
+
         Cookie cookie = new Cookie("userEmail", user.getUserEmail());
         cookie.setPath("/");
         response.addCookie(cookie);

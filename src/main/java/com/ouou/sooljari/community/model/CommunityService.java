@@ -1,9 +1,14 @@
 package com.ouou.sooljari.community.model;
 
+import com.ouou.sooljari.community.dto.CommunityLikedRequestDto;
 import com.ouou.sooljari.community.dto.CommunityRequestDto;
 import com.ouou.sooljari.community.dto.CommunityResponseDto;
 import com.ouou.sooljari.community.entity.Community;
+import com.ouou.sooljari.community.entity.CommunityLiked;
+import com.ouou.sooljari.community.entity.CommunityLikedRepo;
 import com.ouou.sooljari.community.entity.CommunityRepo;
+import com.ouou.sooljari.recommend.dto.LikedRequestDto;
+import com.ouou.sooljari.recommend.entity.Liked;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -18,6 +23,8 @@ import java.util.stream.Collectors;
 public class CommunityService {
 
     private final CommunityRepo CommunityRepo;
+
+    private final CommunityLikedRepo CommunityLikedRepo;
 
     /**
      * product 생성
@@ -61,4 +68,17 @@ public class CommunityService {
         entity.update(params.getUser(), params.getTitle(), params.getImage(), params.getContent(), params.getLikes());
         return id;
     }
+
+    /** 커뮤니티 좋아요 저장 **/
+    @Transactional
+    public void likedSave(final CommunityLikedRequestDto params) {
+        CommunityLiked entity = CommunityLikedRepo.save(params.toEntity());
+//        return entity.getId();
+    }
+
+    @Transactional
+    public void likedDelete(final CommunityLikedRequestDto params) {
+        CommunityLikedRepo.deleteByCommunityIdAndUserId(params.getCommunityId(), params.getUserId());
+    }
+
 }

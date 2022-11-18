@@ -28,4 +28,10 @@ public class LikedService {
         likedRepo.deleteByProductIdAndUserId(params.getProductId(), params.getUserId());
     }
 
+    @Transactional
+    public boolean check(final LikedRequestDto params) {
+        boolean result = likedRepo.checkLiked(params.getProductId(), params.getUserId());
+        return result;
+    }
+
 }

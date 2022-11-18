@@ -1,4 +1,4 @@
-package com.ouou.sooljari.recommend.entity;
+package com.ouou.sooljari.community.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -8,14 +8,14 @@ import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 import java.util.Optional;
 
-public interface LikedRepo extends JpaRepository<Liked, Long> {
-    Optional<Liked> findById(Long id);
+public interface CommunityLikedRepo extends JpaRepository<CommunityLiked, Long> {
+    Optional<CommunityLiked> findById(Long id);
 
     @Transactional
     @Modifying
-    @Query(value = "delete from liked where product_id = :productId and user_id= :userId", nativeQuery = true)
-    void deleteByProductIdAndUserId(@Param("productId") Long productId,
-                                             @Param("userId") String userId);
+    @Query(value = "delete from community_liked where community_id = :communityId and user_id= :userId", nativeQuery = true)
+    void deleteByCommunityIdAndUserId(@Param("communityId") Long communityId,
+                                    @Param("userId") String userId);
 
     @Transactional
     @Modifying

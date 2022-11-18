@@ -111,7 +111,9 @@ regularised = min_max_scaler.fit_transform(dist_matrix)
 
 # 1에서 빼줘서 더 가까운 것이 우선순위를 갖도록 변경하기
 # 데이터 숫자만큼으로 변경해줘야 함
-one_matrix = np.ones((25,25))
+cnt = len(rows)
+
+one_matrix = np.ones((cnt,cnt))
 
 final_dist = one_matrix - regularised
 
@@ -304,12 +306,12 @@ def test() :
         print("this is dataRecommend", id, result, post_result(result))
     return post_result(result)
 
-# @app.route("/recommendById", methods=['GET'])
-# def test2() :
-#     id = request.args.get('id')
-#     print(id)
-#     result = general_recommendation(id)
-#     return post_result(result)
+@app.route("/recommendById", methods=['GET'])
+def test2() :
+    id = request.args.get('id')
+    print(id)
+    result = general_recommendation(id)
+    return post_result(result)
 
 if __name__ == "__main__" :
     app.run(debug=True)

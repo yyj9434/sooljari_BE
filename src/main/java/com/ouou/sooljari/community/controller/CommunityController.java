@@ -1,10 +1,12 @@
 package com.ouou.sooljari.community.controller;
 
+import com.ouou.sooljari.community.dto.CommunityLikedRequestDto;
 import com.ouou.sooljari.community.dto.CommunityRequestDto;
 import com.ouou.sooljari.community.dto.CommunityResponseDto;
 import com.ouou.sooljari.community.entity.Community;
 import com.ouou.sooljari.community.model.CommunityService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +18,9 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class CommunityController {
 
+    @Autowired
     private final CommunityService communityService;
+
 
     /**
      * Community 생성
@@ -59,5 +63,15 @@ public class CommunityController {
     @PatchMapping("/community/{id}")
     public Long save(@PathVariable final Long id, @RequestBody final CommunityRequestDto params) {
         return communityService.update(id, params);
+    }
+
+    @PostMapping("/communityLiked")
+    public void likedSave(@RequestBody CommunityLikedRequestDto params) {
+        boolean liked = params.isLiked();
+        if(liked) {
+            communityService.likedSave(params);
+        } else {
+            communityService.likedDelete(params);
+        }
     }
 }

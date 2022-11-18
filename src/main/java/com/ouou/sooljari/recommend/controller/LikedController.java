@@ -27,8 +27,10 @@ public class LikedController {
     }
 
     @GetMapping("/checkLiked")
-    public void checkLiked(){
-
+    public boolean checkLiked(@RequestBody LikedRequestDto params){
+        boolean liked = LikedService.check(params);
+//        System.out.println("fkdjaklsdf" + liked);
+        return liked;
     }
 
 }
