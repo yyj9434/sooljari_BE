@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
+import java.sql.ResultSet;
 import java.util.Optional;
 
 public interface CommunityLikedRepo extends JpaRepository<CommunityLiked, Long> {
@@ -22,4 +23,6 @@ public interface CommunityLikedRepo extends JpaRepository<CommunityLiked, Long> 
     @Query(value = "select liked from liked where product_id = :productId and user_id= :userId", nativeQuery = true)
     boolean checkLiked(@Param("productId") Long productId,
                        @Param("userId") String userId);
+
+    Optional<CommunityLiked> countCommunityLikedByCommunityId(Long communityId);
 }

@@ -174,10 +174,11 @@ new_sim = 0.5 * cosine_sim + 0.5 * final_dist
 # 고유 id를 넣으면 해당 술과 비슷한 Top 10의 id를 return
 def general_recommendation(input_id, new_sim = new_sim):
 
-    input_id = int(input_id)
     # 고유 id로 index 찾기 
     idx = data.index[data['id'] == input_id].tolist() # Int64Index 형식이라 list로 바꾸어줌
-    
+
+    print(new_sim[idx[0]])
+
     # 해당 index의 유사도 리스트 sort in descending order
     score_series = pd.Series(new_sim[idx[0]]).sort_values(ascending = False)
     
@@ -302,6 +303,7 @@ def test() :
         result = get_result(userEmail)
         print("this is recommend for user",userEmail, result, post_result(result))
     else :
+        id = int(id)
         result = general_recommendation(id)
         print("this is dataRecommend", id, result, post_result(result))
     return post_result(result)

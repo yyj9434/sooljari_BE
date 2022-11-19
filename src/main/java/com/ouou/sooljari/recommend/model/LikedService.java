@@ -31,6 +31,7 @@ public class LikedService {
     @Transactional
     public boolean check(final LikedRequestDto params) {
         boolean result = likedRepo.checkLiked(params.getProductId(), params.getUserId());
+        System.out.println("라이크야 모야" + result);
         return result;
     }
 

@@ -4,6 +4,7 @@ import com.ouou.sooljari.community.dto.CommunityLikedRequestDto;
 import com.ouou.sooljari.community.dto.CommunityRequestDto;
 import com.ouou.sooljari.community.dto.CommunityResponseDto;
 import com.ouou.sooljari.community.entity.Community;
+import com.ouou.sooljari.community.entity.CommunityLiked;
 import com.ouou.sooljari.community.model.CommunityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,5 +74,11 @@ public class CommunityController {
         } else {
             communityService.likedDelete(params);
         }
+    }
+
+    @PostMapping("/countCommunityLiked")
+    public String countCommunityliked(@RequestBody CommunityLikedRequestDto params) {
+        System.out.println(communityService.countCommunityliked(params));
+        return communityService.countCommunityliked(params);
     }
 }

@@ -81,4 +81,13 @@ public class CommunityService {
         CommunityLikedRepo.deleteByCommunityIdAndUserId(params.getCommunityId(), params.getUserId());
     }
 
+    @Transactional
+    public String countCommunityliked(final CommunityLikedRequestDto params) {
+
+        Long communityId = params.getCommunityId();
+        Optional<CommunityLiked> opt = CommunityLikedRepo.countCommunityLikedByCommunityId(communityId);
+        String cnt = String.valueOf(opt.get());
+        return cnt;
+    }
+
 }
