@@ -175,9 +175,7 @@ new_sim = 0.5 * cosine_sim + 0.5 * final_dist
 def general_recommendation(input_id, new_sim = new_sim):
 
     # 고유 id로 index 찾기 
-    idx = data.index[data['id'] == input_id].tolist() # Int64Index 형식이라 list로 바꾸어줌
-
-    print(new_sim[idx[0]])
+    idx = data.index[data['id'] == input_id + 1].tolist() # Int64Index 형식이라 list로 바꾸어줌
 
     # 해당 index의 유사도 리스트 sort in descending order
     score_series = pd.Series(new_sim[idx[0]]).sort_values(ascending = False)

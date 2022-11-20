@@ -78,7 +78,6 @@ public class CommunityController {
 
     @PostMapping("/countCommunityLiked")
     public String countCommunityliked(@RequestBody CommunityLikedRequestDto params) {
-        System.out.println(communityService.countCommunityliked(params));
         return communityService.countCommunityliked(params);
     }
 }
